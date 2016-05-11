@@ -1,16 +1,16 @@
 # main links links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Projects"
+    url: https://robin-vjc.github.io/projects/
 
-  - title: "About"
-    url: https://mmistakes.github.io/minimal-mistakes/
+  - title: "Publications"
+    url: https://robin-vjc.github.io/publications/
 
-  - title: "Sample Posts"
-    url: https://mmistakes.github.io/minimal-mistakes/year-archive/
+  - title: "Software Tools"
+    url: https://robin-vjc.github.io/software/
 
-  - title: "Sample Pages"
-    url: https://mmistakes.github.io/minimal-mistakes/page-archive/
+  - title: "Blog Posts"
+    url: https://robin-vjc.github.io/blog/
 
-  - title: "Sample Collections"
-    url: https://mmistakes.github.io/minimal-mistakes/collection-archive/
+  - title: "Short Bio"
+    url: https://robin-vjc.github.io/about/
