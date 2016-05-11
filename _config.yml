@@ -7,11 +7,11 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Site Titlee"
+title                    : "Home"
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Robin Vujanic"
+description              : "Personal webpage. List of publications, links to software tools and posts on mathematical optimization, operations research."
+url                      : "https://robin-vjc.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -61,12 +61,12 @@ google_ad_slot           :
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : "bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
-  uri              :
+  name             : "Robin Vujanic"
+  avatar           : "bio-photo.png"
+  bio              : "Originally from Switzerland, currently living in Sydney. Passionate about mathematical optimization, python, weight lifting and TV series."
+  location         : "Sydney, Australia"
+  email            : "robin@acfr.usyd.edu.au"
+  uri              : "http://db.acfr.usyd.edu.au/content.php/232.html?personid=537"
   bitbucket        :
   codepen          :
   dribbble         :
@@ -75,6 +75,7 @@ author:
   foursquare       :
   github           :
   google_plus      :
+  google_scholar   : "https://scholar.google.com.au/citations?&user=waoeUsMAAAAJ"
   keybase          :
   instagram        :
   lastfm           :
