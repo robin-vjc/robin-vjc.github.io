@@ -28,7 +28,7 @@ NSW 2006, Australia<br><br>
 I develop new mathematical models that enable the optimal operation of systems, in particular large engineered systems
 such as power networks and mining production networks. 
 
-## Decomposition of Large Scale MILP Models
+## Decomposition of Large Scale (MIP) Optimization Models
 
 ![image-center](/images/largescale.png){: .align-center}
 I do research on practical methods for solving large, structured optimization problems. These arise, for example, when
