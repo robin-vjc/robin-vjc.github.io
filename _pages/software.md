@@ -1,7 +1,7 @@
 ---
 title: "Software"
 layout: single
-excerpt: "Some Software Tools."
+excerpt: "Software Tools for Optimization, mainly written in Python."
 sitemap: false
 permalink: /software/
 ---
