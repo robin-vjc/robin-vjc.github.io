@@ -41,3 +41,4 @@ I am also interested in optimization models entailing uncertainties, and in part
 uncertainties in a robust fashion. The primary application domains of my research in this area have been in the control 
 of power electronic systems, and optimization of industrial production processes.
 {: .text-justify}
+![image-left](/images/prodnet.png){: .align-left}
