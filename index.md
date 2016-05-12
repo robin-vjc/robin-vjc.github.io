@@ -1,6 +1,9 @@
 ---
-layout: archive
+title: "Main"
+layout: single
+excerpt: "Main page."
 author_profile: true
+sitemap: false
 ---
 
 # Robin Vujanic
@@ -11,7 +14,7 @@ applications. These domains invariably require the co-optimization of continuous
 currents, concentrations, grades, etc) and binary variables (on-off decisions, logic constraints). This requirement
 generally results in hard computational problems. 
 
-aa 
+aa bbb
 I contribute by developing new models in the above mentioned application fields, as well
 as matching these models with appropriate approximation schemes.
 
