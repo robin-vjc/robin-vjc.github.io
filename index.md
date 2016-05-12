@@ -23,11 +23,16 @@ NSW 2006, Australia<br><br>
 
 # Projects
 
+## Applications of Optimization
+
+I develop new mathematical models that enable the optimal operation of systems, in particular large engineered systems
+such as power networks and mining production networks. 
+
 ## Decomposition of Large Scale MILP Models
 
 I do research on practical methods for solving large, structured optimization problems. These arise, for example, when
-dealing with the operation of large engineered systems (such as power networks, mining production networks, supply chains).
-They also appear in the context of solving scenario based stochastic models (e.g., in multi stage stochastic optimization).
+dealing with the operation of large engineered systems. They also appear in the context of solving scenario based 
+stochastic models (e.g., in multi stage stochastic optimization).
 {: .text-justify}
 
 ## Robust Scheduling and Optimization
