@@ -45,10 +45,11 @@ This Python script does the parsing. It requires the `gurobipy` package.
 
 If you are working with STNs and your production schedule is subject to uncertainties, you may be interested
 in [this application](https://github.com/robin-vjc/pySTN).
-
+{: .text-justify}
 
 ## fastDD
 
 Distributed methods for stochastic 2- stage models, and graphical inference models (Markov random fields, factor graphs).
+{: .text-justify}
 
 See [here](https://github.com/robin-vjc/fastDD).
