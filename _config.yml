@@ -206,7 +206,6 @@ compress_html:
   ignore:
     envs: development
 
-
 defaults:
   # _posts
   - scope:
