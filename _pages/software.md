@@ -6,7 +6,7 @@ sitemap: false
 permalink: /software/
 ---
 
-All the software tools below are provided without any guarantee.
+All software tools are provided without any guarantee nor liability.
 
 ## SMPS Files Reader (Python)
 
