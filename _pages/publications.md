@@ -26,7 +26,7 @@ Below the list of my most recent publications. You can find a complete list on m
 *Automatica*, 2016.<br>
 [[PDF][automatica pdf]] [[Publication Link][automatica publish]]
 
-[automatica pdf]: {{site.url}}/publications/slides/robust_MIPs_presentation.pdf "robust scheduling slides"
+[automatica pdf]: {{site.url}}/publications/large_mips_automatica.pdf "robust scheduling slides"
 [automatica publish]: http://www.sciencedirect.com/science/article/pii/S0005109816000078 "automatica publisher link"
 
 
