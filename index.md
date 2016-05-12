@@ -13,5 +13,10 @@ zz
 www
 aaa
 
-# Works?
+### Contact Information
 
+Dr. Robin Vujanic<br>
+RTCMA - Rio Tinto Centre for Mine Automation<br>
+J13 Link Building<br>
+The University of Sydney<br>
+NSW 2006, Australia<br><br>
