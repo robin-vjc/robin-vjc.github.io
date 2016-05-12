@@ -7,8 +7,8 @@ sitemap: false
 ---
 
 My research is mainly oriented towards the application of **mathematical optimization methods**. I have worked in the
-**energy** domain at [IfA in Zurich](http://control.ee.ethz.ch/), and in my current position at ACFR, Sydney, I am 
-also investigating models for **mining** applications. These domains invariably require the co-optimization of 
+**energy** domain at [IfA in Zurich](http://control.ee.ethz.ch/), and in my current position at [ACFR, Sydney](http://www.acfr.usyd.edu.au/), 
+I am also investigating models for **mining** applications. These domains invariably require the co-optimization of 
 continuous quantities (such as voltages, currents, concentrations, grades, etc) and binary variables (on-off decisions, 
 logic constraints). This requirement generally results in hard computational problems. 
 {: .text-justify}
