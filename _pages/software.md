@@ -50,6 +50,6 @@ in [this application](https://github.com/robin-vjc/pySTN).
 ## fastDD
 
 Distributed methods for stochastic 2- stage models, and graphical inference models (Markov random fields, factor graphs).
+See [here](https://github.com/robin-vjc/fastDD).
 {: .text-justify}
 
-See [here](https://github.com/robin-vjc/fastDD).
