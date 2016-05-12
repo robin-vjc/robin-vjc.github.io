@@ -35,9 +35,8 @@ dealing with the operation of large engineered systems. They also appear in the 
 stochastic models (e.g., in multi stage stochastic optimization).
 {: .text-justify}
 
+![image-left](/images/schedules.png){: .align-left}
 ## Robust Scheduling and Optimization
-
-![image-left](/images/prodnet.png){: .align-left}
 I am also interested in optimization models entailing uncertainties, and in particular in methods to address these
 uncertainties in a robust fashion. The primary application domains of my research in this area have been in the control 
 of power electronic systems, and optimization of industrial production processes.
