@@ -9,7 +9,7 @@ Note that for some reason their REST API does not support this particular type o
 [paypalrestsdk](https://github.com/paypal/PayPal-Python-SDK). You are stuck with the older [NVP API](https://developer.paypal.com/docs/classic/api/NVPAPIOverview/) for this.
 {: .text-justify}
 
-Below I provide code snippets to help you get started from your own Django/Flask application. 
+Below I provide code snippets to help you get started with your own Django/Flask application. 
 {: .text-justify}
 
 
