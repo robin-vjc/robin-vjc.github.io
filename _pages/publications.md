@@ -18,7 +18,7 @@ Below the list of my most recent publications. You can find a complete list on m
 
 [robust scheduling slides]: {{site.url}}/publications/slides/robust_MIPs_presentation.pdf "robust scheduling slides"
 [robust scheduling code]: https://github.com/robin-vjc/pySTN "robust scheduling code"
-[robust scheduling pdf]: {{site.url}}/publications/slides/robust_scheduling_paper.pdf "robust scheduling pdf"
+[robust scheduling pdf]: {{site.url}}/publications/robust_scheduling_paper.pdf "robust scheduling pdf"
 [robust scheduling publish]: http://link.springer.com/article/10.1007/s10957-016-0920-3 "robust scheduling publisher link"
 
 * R. Vujanic, P. M. Esfahani, P. J. Goulart, S. Mariéthoz, M. Morari<br> 
@@ -26,7 +26,7 @@ Below the list of my most recent publications. You can find a complete list on m
 *Automatica*, 2016.<br>
 [[PDF][automatica pdf]] [[Publication Link][automatica publish]]
 
-[automatica pdf]: ???slides/robust_MIPs_presentation.pdf "robust scheduling slides"
+[automatica pdf]: {{site.url}}/publications/slides/robust_MIPs_presentation.pdf "robust scheduling slides"
 [automatica publish]: http://www.sciencedirect.com/science/article/pii/S0005109816000078 "automatica publisher link"
 
 
@@ -37,7 +37,7 @@ Below the list of my most recent publications. You can find a complete list on m
 *IEEE Conference on Decision and Control (CDC)*, Los Angeles, December 2014.<br>
 [[Slides][cdc pev slides]] [[PDF][cdc pev pdf]] [[Publication Link][cdc pev publish]]
 
-[cdc pev slides]: ???slides/CDC_14_presentation_public_vers.pdf  "CDC electric vehicle slides"
+[cdc pev slides]: {{site.url}}/publications/slides/CDC_14_presentation_public_vers.pdf  "CDC electric vehicle slides"
 [cdc pev pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4717  "CDC electric vehicle pdf"
 [cdc pev publish]: http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=7040174&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel7%2F7027307%2F7039338%2F07040174.pdf%3Farnumber%3D7040174  "CDC electric vehicle publish"
 
@@ -47,7 +47,7 @@ Below the list of my most recent publications. You can find a complete list on m
 *Mediterranean Conference on Control & Automation (MED)*, Palermo, Italy, March 2014.<br>
 [[Slides][palermo slides]] [[PDF][palermo pdf]] [[Publication Link][palermo publish]]
 
-[palermo slides]: ???slides/palermo_presentation.pdf  "palermo slides"
+[palermo slides]: {{site.url}}/publications/slides/palermo_presentation.pdf  "palermo slides"
 [palermo pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4717 "palermo pdf"
 [palermo publish]: http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=6961472 "palermo publisher link"
 
@@ -58,7 +58,7 @@ Below the list of my most recent publications. You can find a complete list on m
 [[PDF][cdc convex relax pdf]] [[Publication Link][cdc convex relax publish]]
 
 [cdc convex relax publish]: http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6760906  "convex relaxations publisher link"
-[cdc convex relax pdf]: ??? "convex relaxations pdf"
+[cdc convex relax pdf]: https://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4509 "convex relaxations pdf"
 
 
 * R. Vujanic, M. Schmitt, J. Warrington and M. Morari<br>
@@ -66,7 +66,7 @@ Below the list of my most recent publications. You can find a complete list on m
 *European Control Conference (ECC)*, Zurich, July 2013<br>
 [[Slides][ecc slides]] [[PDF][ecc pdf]] [[Publication Link][ecc publish]]
 
-[ecc slides]: ???slides/ECC_presentation.pdf "ecc slides"
+[ecc slides]: {{site.url}}/publications/slides/ECC_presentation.pdf "ecc slides"
 [ecc pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4345 "ecc pdf"
 [ecc publish]: http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6669776&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6669776 "ecc publisher link"
 
@@ -89,7 +89,7 @@ Automatic Control Laboratory, D-ITET, ETH Zurich, 2015.<br>
 [[Slides][phd slides]] [[PDF][phd pdf]] 
 
 [phd pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=5067 "phd pdf"
-[phd slides]: ??? "phd slides"
+[phd slides]: {{site.url}}/publications/slides/Thesis_final_presentation.pdf "phd slides"
 
 
 * I. Sirmatel (supervision)<br>
