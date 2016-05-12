@@ -15,6 +15,7 @@ All software tools are provided without any guarantee nor liability.
 [SMPS](http://myweb.dal.ca/gassmann/smps2.htm) is a file format for distributing stochastic multistage models. 
 It is an extension of the [MPS file format](https://en.wikipedia.org/wiki/MPS_(format)), which is used to store 
 optimization models. 
+{: .text-justify}
 
 There is a [parser written in FORTRAN](http://myweb.dal.ca/gassmann/inputs.htm), but I was unable to make it work in my 
 Python environment. [Pyomo](http://www.pyomo.org/) has some code to write SMPS files, but not to parse them (see also 
@@ -22,11 +23,12 @@ Python environment. [Pyomo](http://www.pyomo.org/) has some code to write SMPS f
 I decided to write a parser script from scratch. It can be used to parse most models from archives such as 
 [SIPLIB](http://www2.isye.gatech.edu/~sahmed/siplib/), [POST](http://users.iems.northwestern.edu/~jrbirge/html/dholmes/post.html)
  and [Andy Felt's collection](http://www4.uwsp.edu/math/afelt/slptestset/download.html).
+{: .text-justify}
  
 Standards are set in the SMPS documentation, but models archives do not always follow them. Also, the parser does not
 currently support BLOCK-INDEP mode. If you have troubles 
 parsing some of these files, do not hesitate to contact me.
-
+{: .text-justify}
 
 
 ## MineLib Reader (Python)
@@ -36,6 +38,7 @@ parsing some of these files, do not hesitate to contact me.
 [MineLib](http://mansci-web.uai.cl/minelib/) is a library of optimization model instances related to open-pit 
 mine sequencing. [Here](http://emoreno.uai.cl/publicaciones/PREPRINTS/preprint-AOR12-Minelib.pdf) is a description 
 of the file format, while [here](http://mansci-web.uai.cl/minelib/Datasets.xhtml) are the datasets.
+{: .text-justify}
 
 This Python script does the parsing. It requires the `gurobipy` package.
 
