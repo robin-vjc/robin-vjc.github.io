@@ -8,7 +8,7 @@ permalink: /software/
 
 All software tools are provided without any guarantee nor liability.
 
-## SMPS Files Reader (Python)
+## SMPS File Reader (Python)
 
 * [smps-read.py](https://github.com/robin-vjc/fastDD/blob/master/applications/stochasticMIP/smps_read.py)
 
@@ -29,8 +29,15 @@ parsing some of these files, do not hesitate to contact me.
 
 
 
-## MineLib Parser (Python)
+## MineLib Reader (Python)
 
+* [minelib-read.py](https://github.com/robin-vjc/MineLib/blob/master/minelib-read.py)
+
+[MineLib](http://mansci-web.uai.cl/minelib/) is a library of optimization model instances related to open-pit 
+mine sequencing. [Here](http://emoreno.uai.cl/publicaciones/PREPRINTS/preprint-AOR12-Minelib.pdf) is a description 
+of the file format, while [here](http://mansci-web.uai.cl/minelib/Datasets.xhtml) are the datasets.
+
+This Python script does the parsing. It requires the `gurobipy` package.
 
 ## Robust Scheduler for STNs
 
