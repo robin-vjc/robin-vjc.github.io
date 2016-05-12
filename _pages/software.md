@@ -8,7 +8,7 @@ permalink: /software/
 
 All software tools are provided without any guarantee nor liability.
 
-## SMPS File Reader (Python)
+## SMPS File Reader
 
 * [smps-read.py](https://github.com/robin-vjc/fastDD/blob/master/applications/stochasticMIP/smps_read.py)
 
@@ -30,7 +30,7 @@ currently support BLOCK-INDEP mode. If you have troubles parsing some of these f
 {: .text-justify}
 
 
-## MineLib Reader (Python)
+## MineLib Reader
 
 * [minelib-read.py](https://github.com/robin-vjc/MineLib/blob/master/minelib-read.py)
 
