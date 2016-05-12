@@ -16,9 +16,9 @@ Below the list of my most recent publications. You can find a complete list on m
 *Journal of Optimization Theory and Applications (JOTA)*, 2016.<br>
 [[Slides][robust scheduling slides]] [[PDF][robust scheduling pdf]] [[Code][robust scheduling code]] [[Publication Link][robust scheduling publish]]
 
-[robust scheduling slides]: ???slides/robust_MIPs_presentation.pdf "robust scheduling slides"
+[robust scheduling slides]: {{site.url}}/publications/slides/robust_MIPs_presentation.pdf "robust scheduling slides"
 [robust scheduling code]: https://github.com/robin-vjc/pySTN "robust scheduling code"
-[robust scheduling pdf]: ??? "robust scheduling code"
+[robust scheduling pdf]: {{site.url}}/publications/slides/robust_scheduling_paper.pdf "robust scheduling pdf"
 [robust scheduling publish]: http://link.springer.com/article/10.1007/s10957-016-0920-3 "robust scheduling publisher link"
 
 * R. Vujanic, P. M. Esfahani, P. J. Goulart, S. Mariéthoz, M. Morari<br> 
