@@ -25,19 +25,9 @@ NSW 2006, Australia<br><br>
 
 ## Decomposition of Large Scale MILP Models
 
-I do research on practical methods for solving large, structured optimization problems. These arise, among others, in the
-context of optimization of large engineered systems (such as power networks, mining production networks, supply chains),
-but also when looking for solutions to scenario based stochastic models (e.g., in multi stage stochastic optimization).
-{: .text-justify}
-
-large scale (i do some modelling, i do some approximation schemes what kind of 
-system of interconnected subsystems
-properties: resilient, dynamic addition of subystems)
-
-
-## Mining and Energy Applications
-
-I contribute by developing new optimization models for these domains, and by borrowing or inventing new approximation 
+I do research on practical methods for solving large, structured optimization problems. These arise, for example, when
+dealing with the operation of large engineered systems (such as power networks, mining production networks, supply chains).
+They also appear in the context of solving scenario based stochastic models (e.g., in multi stage stochastic optimization).
 {: .text-justify}
 
 ## Robust Scheduling and Optimization
