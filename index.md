@@ -30,13 +30,14 @@ such as power networks and mining production networks.
 
 ## Decomposition of Large Scale MILP Models
 
+![image-center](/images/largescale.png){: .align-center}
 I do research on practical methods for solving large, structured optimization problems. These arise, for example, when
 dealing with the operation of large engineered systems. They also appear in the context of solving scenario based 
 stochastic models (e.g., in multi stage stochastic optimization).
 {: .text-justify}
 
-![image-left](/images/schedules.png){: .align-left}
 ## Robust Scheduling and Optimization
+![image-left](/images/schedules.png){: .align-left}
 I am also interested in optimization models entailing uncertainties, and in particular in methods to address these
 uncertainties in a robust fashion. The primary application domains of my research in this area have been in the control 
 of power electronic systems, and optimization of industrial production processes.
