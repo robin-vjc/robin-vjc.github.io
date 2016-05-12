@@ -26,8 +26,7 @@ I decided to write a parser script from scratch. It can be used to parse most mo
 {: .text-justify}
  
 Standards are set in the SMPS documentation, but models archives do not always follow them. Also, the parser does not
-currently support BLOCK-INDEP mode. If you have troubles 
-parsing some of these files, do not hesitate to contact me.
+currently support BLOCK-INDEP mode. If you have troubles parsing some of these files, do not hesitate to contact me.
 {: .text-justify}
 
 
@@ -44,5 +43,12 @@ This Python script does the parsing. It requires the `gurobipy` package.
 
 ## Robust Scheduler for STNs
 
-## fastDD (Distributed methods for Stochastic Models, and graphical models)
+If you are working with STNs and your production schedule is subject to uncertainties, you may be interested
+in [this application](https://github.com/robin-vjc/pySTN).
 
+
+## fastDD
+
+Distributed methods for stochastic 2- stage models, and graphical inference models (Markov random fields, factor graphs).
+
+See [here](https://github.com/robin-vjc/fastDD).
