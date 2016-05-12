@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Home - Projects"
+title                    : "Home"
 title_separator          : "-"
 name                     : "Robin Vujanic"
 description              : "Personal webpage. List of publications, links to software tools and posts on mathematical optimization, operations research."
