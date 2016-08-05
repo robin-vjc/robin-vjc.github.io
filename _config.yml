@@ -66,7 +66,7 @@ author:
   bio              : "R&D @ Rio Tinto Centre for Mine Automation, Sydney. Currently work on asset optimization for the mining sector."
   location         : "Sydney, Australia"
   email            : "robin@acfr.usyd.edu.au"
-  uri              : "http://db.acfr.usyd.edu.au/content.php/232.html?personid=537"
+  uri              : # "http://db.acfr.usyd.edu.au/content.php/232.html?personid=537"
   bitbucket        :
   codepen          :
   dribbble         :
