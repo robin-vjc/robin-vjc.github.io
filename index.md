@@ -30,7 +30,8 @@ NSW 2006, Australia<br><br>
 </p>
 
 I am interested in the development of new mathematical models that enable the optimal operation of 
-large engineered systems, such as power networks and mining production and supply chains. 
+large engineered systems, such as power networks and mining production and supply chains.
+{: .text-justify}
 
 ## Decomposition of Large Scale (MIP) Optimization Models
 
