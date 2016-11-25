@@ -26,7 +26,7 @@ NSW 2006, Australia<br><br>
 ## Applications of Optimization
 
 <p align="center">
-  <img src="./images/img/applications.png" alt="Applications" width="60%" href="#"/>
+  <img src="/images/applications.png" alt="Applications" width="60%" href="#"/>
 </p>
 
 I am interested in the development of new mathematical models that enable the optimal operation of 
