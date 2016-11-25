@@ -25,8 +25,12 @@ NSW 2006, Australia<br><br>
 
 ## Applications of Optimization
 
+<p align="center">
+  <img src="./images/img/applications.png" alt="Applications" width="60%" href="#"/>
+</p>
+
 I am interested in the development of new mathematical models that enable the optimal operation of 
-large engineered systems, such as power networks and mining production networks. 
+large engineered systems, such as power networks and mining production and supply chains. 
 
 ## Decomposition of Large Scale (MIP) Optimization Models
 
