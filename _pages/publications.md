@@ -125,7 +125,7 @@ Automatic Control Laboratory, D-ITET, ETH Zurich, 2012.<br>
 [[PDF][vibration pdf]] [[Publication Link][vibration publish]]
 
 
-[vibration pdf]: ??? "vibration pdf"
+[vibration pdf]: {{site.url}}/publications/multiphase_control.pdf "vibration pdf"
 [vibration publish]: http://jvc.sagepub.com/content/early/2016/05/05/1077546316644366.abstract "vibration link"
 
 
