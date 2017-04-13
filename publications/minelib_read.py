@@ -1,0 +1,363 @@
+'''
+Usage:
+
+>> model = MipLibModel('./path/to/benchmarks/newman1.upit')
+
+The object will contain all the parsed information, e.g.
+
+>> model.model_nblocks
+1060
+>> model.blocks_precedence
+{0: [], 1: [2, 9], 2: [3, 10], 3: [4, 11], 4: [5], …, 1059: [1051, 1058]}
+
+To automatically generate a Gurobi optimization model:
+
+>> model._generate_global_gurobi_model()
+>> model.gb_model
+<gurobi.Model MIP instance Newman1_UPIT_1060: 3922 constrs, 1060 vars, Parameter changes: LogFile=gurobi.log>
+
+Which can then be solved:
+
+>> model.gb_model.update()
+>> model.gb_model.optimize()
+
+The solution is stored in model.x_b, model.x_bt, model.y_bdt. 
+'''
+
+
+try:
+    import gurobipy as gb
+except ImportError:
+    gb = 0
+    print('Gurobi required for running the optimization methods in the MineLib module.')
+
+
+class MipLibModel(object):
+    def __init__(self, filename):
+        """ Parses miplib dataset file (.upit .cpit or .pspcp) and generates all models parameters and a Gurobi
+        representation.
+        :param filename: name of the mine data file (STRING), e.g., 'newman1.uipt' or 'zuck_small.cpit'.
+        The file should reside in the sub folder ./data/. """
+        # DATA
+        self.p_bd = {}
+        self.R_rt_lb = {}
+        self.R_rt_ub = {}
+        self.q_br = {}
+        self.q_brd = {}
+        self.A_btdj = {}
+        self.a_j_lb = {}
+        self.a_j_ub = {}
+
+        self.model_ndestinations = 1
+        self.model_nperiods = 0
+        self.model_nresource_side_constraints = 0
+        self.model_ngeneral_side_constraints = 0
+
+        self.model_discount_rate = 0
+        self.blocks_precedence = {}
+        self.model_name = ''
+        self.model_type = ''
+        self.model_nblocks = 0
+        # parse all the above fields from instance dataset
+        self._parse_model_data(filename)
+
+        # Discounted cost
+        self.p_hat_bt = {}
+        for b in range(self.model_nblocks):
+            for t in range(self.model_nperiods):
+                self.p_hat_bt[b,t] = float(self.p_bd[b, 0]) * (1.0 / (1.0 + self.model_discount_rate)) ** t
+
+        # optimization model
+        self.gb_model = gb.Model(''.join([self.model_name, '_', self.model_type, '_', str(self.model_nblocks)]))
+        self.x_b = {}
+        self.x_bt = {}
+        self.y_bdt = {}
+
+        # self._generate_global_gurobi_model()
+        # self.gb_model.optimize()
+
+    def _parse_model_data(self, filename):
+        ALLOWED_PROBLEM_TYPES = ['UPIT', 'CPIT', 'PCPSP']
+        SECTION = 0
+        OBJECTIVE_FUNCTION_SECTION = 1
+        RESOURCE_CONSTRAINT_LIMITS_SECTION = 2
+        RESOURCE_CONSTRAINT_COEFFICIENTS_SECTION = 3
+        GENERAL_CONSTRAINT_LIMITS_SECTION = 4
+        GENERAL_CONSTRAINT_COEFFICIENTS_SECTION = 5
+
+        ######################
+        # Extract Model Data #
+        ######################
+
+        print('Parsing data files...')
+        # general model data
+        # name, type = filename.split('.')
+        # model_filename = ''.join(['./data/', filename])
+        model_filename = filename
+        name, type_of_file = model_filename.split('/')[-1].split('.')
+
+        # if os.path.isfile(''.join(['./data/', name, '_', type.upper(), '.mps'])):
+        #     print('An .mps file for this model exists in the ./data/ directory. Using it to extract the model.')
+        #     return gb.read(''.join(['./data/', name, '_', type.upper(), '.mps']))
+
+        with open(model_filename, 'r') as f:
+            for line in f:
+                line_split = line.split(' ')
+                line_split = [x.strip() for x in line_split]
+
+                # first understand which section we are in
+                if line_split[0] == 'NAME:':
+                    self.model_name = line_split[1]
+                elif line_split[0] == 'TYPE:':
+                    # if line_split[1] not in ALLOWED_PROBLEM_TYPES:
+                    #     print 'WARNING. Problem Type not recognized.'
+                    assert line_split[1] in ALLOWED_PROBLEM_TYPES, 'WARNING. Problem Type not recognized.'
+                    self.model_type = line_split[1]
+                elif line_split[0] == 'NBLOCKS:':
+                    self.model_nblocks = int(line_split[1])
+                elif line_split[0] == 'NPERIODS:':
+                    self.model_nperiods = int(line_split[1])
+                elif line_split[0] == 'NDESTINATIONS:':
+                    self.model_ndestinations = int(line_split[1])
+                elif line_split[0] == 'NRESOURCE_SIDE_CONSTRAINTS:':
+                    self.model_nresource_side_constraints = int(line_split[1])
+                elif line_split[0] == 'NGENERAL_SIDE_CONSTRAINTS:':
+                    self.model_ngeneral_side_constraints = int(line_split[1])
+                elif line_split[0] == 'DISCOUNT_RATE:':
+                    self.model_discount_rate = float(line_split[1])
+                elif line_split[0] == 'OBJECTIVE_FUNCTION:':
+                    SECTION = OBJECTIVE_FUNCTION_SECTION
+                elif line_split[0] == 'RESOURCE_CONSTRAINT_LIMITS:':
+                    SECTION = RESOURCE_CONSTRAINT_LIMITS_SECTION
+                elif line_split[0] == 'RESOURCE_CONSTRAINT_COEFFICIENTS:':
+                    SECTION = RESOURCE_CONSTRAINT_COEFFICIENTS_SECTION
+                elif line_split[0] == 'GENERAL_CONSTRAINT_LIMITS:':
+                    SECTION = GENERAL_CONSTRAINT_LIMITS_SECTION
+                elif line_split[0] == 'GENERAL_CONSTRAINT_COEFFICIENTS_FUNCTION:':
+                    SECTION = GENERAL_CONSTRAINT_COEFFICIENTS_SECTION
+                elif line_split[0] == 'EOF':
+                    pass
+
+                # else, we are within some section, and we have to parse the data
+                else:
+                    line_length = line_split.__len__()
+                    if SECTION == OBJECTIVE_FUNCTION_SECTION:
+                        line_split[0] = int(line_split[0])
+                        line_split[1:] = map(float, line_split[1:])
+                        for i in range(self.model_ndestinations):
+                            self.p_bd[line_split[0], i] = line_split[1 + i]
+
+                    elif SECTION == RESOURCE_CONSTRAINT_LIMITS_SECTION:
+                        line_split[0:2] = map(int, line_split[0:2])
+                        line_split[3:] = map(float, line_split[3:])
+                        if line_split[2] == 'L':
+                            self.R_rt_lb[line_split[0], line_split[1]] = -gb.GRB.INFINITY
+                            self.R_rt_ub[line_split[0], line_split[1]] = line_split[3]
+                        elif line_split[2] == 'G':
+                            self.R_rt_lb[line_split[0], line_split[1]] = line_split[3]
+                            self.R_rt_ub[line_split[0], line_split[1]] = gb.GRB.INFINITY
+                        elif line_split[2] == 'I':
+                            self.R_rt_lb[line_split[0], line_split[1]] = line_split[3]
+                            self.R_rt_ub[line_split[0], line_split[1]] = line_split[4]
+                        else:
+                            print('ERROR: Resource Constraint Limits are either of type L, G or I.')
+
+                    elif SECTION == RESOURCE_CONSTRAINT_COEFFICIENTS_SECTION:
+                        if self.model_type == 'CPIT':
+                            line_split[0:2] = map(int, line_split[0:2])
+                            line_split[2] = float(line_split[2])
+                            self.q_br[line_split[0], line_split[1]] = line_split[2]
+                        elif self.model_type == 'PCPSP':
+                            line_split[0:3] = map(int, line_split[0:3])
+                            line_split[3] = float(line_split[3])
+                            self.q_brd[line_split[0], line_split[2], line_split[1]] = line_split[3]
+                        else:
+                            print('ERROR. Resource constraint coefficients only for models CPIT and PCPSP.')
+
+                    elif SECTION == GENERAL_CONSTRAINT_LIMITS_SECTION:
+                        line_split[0] = int(line_split[0])
+                        line_split[2:] = map(float, line_split[2:])
+                        if line_split[1] == 'L':
+                            self.a_j_lb[line_split[0]] = -gb.GRB.INFINITY
+                            self.a_j_ub[line_split[0]] = line_split[2]
+                        elif line_split[1] == 'G':
+                            self.a_j_lb[line_split[0]] = line_split[3]
+                            self.a_j_ub[line_split[0]] = gb.GRB.INFINITY
+                        elif line_split[1] == 'I':
+                            self.a_j_lb[line_split[0]] = line_split[2]
+                            self.a_j_ub[line_split[0]] = line_split[3]
+                        else:
+                            print('ERROR: General Constraint Limits are either of type L, G or I.')
+                    elif SECTION == GENERAL_CONSTRAINT_COEFFICIENTS_SECTION:
+                        line_split[0:4] = map(int, line_split[0:4])
+                        line_split[4] = float(line_split[4])
+                        self.A_btdj [line_split[0], line_split[1], line_split[2], line_split[3]] = line_split[4]
+                    else:
+                        print('WARNING. Could not parse line: ' + line)
+
+        # precedence constraints data
+        # precedence_filename = ''.join(['./data/', name, '.prec'])
+        path = '/'.join(filename.split('/')[:-1])+'/'
+        precedence_filename = ''.join([path, name, '.prec'])
+        with open(precedence_filename, 'r') as f:
+            # blocks_precedence = {}
+
+            for line in f:
+                line_split = line.split(' ')
+                line_split = [x.strip() for x in line_split]
+                self.blocks_precedence[int(line_split[0])] = [int(line_split[x]) for x in range(2, line_split.__len__())]
+
+    def _generate_global_gurobi_model(self):
+        self.gb_model.modelSense = gb.GRB.MAXIMIZE
+
+        if self.model_type == 'UPIT':
+            print('Model type: UPIT')
+            self._generate_upit_gb_model()
+
+        elif self.model_type == 'CPIT':
+            print('Model type: CPIT')
+            self._generate_cpit_gb_model()
+
+        elif self.model_type == 'PCPSP':
+            print('Model type: PCPSP')
+            self._generate_pcpsp_gb_model()
+
+        self.gb_model.update()
+
+    def _generate_upit_gb_model(self):
+        # UPIT model construction
+        for b in range(self.model_nblocks):
+            self.x_b[b] = self.gb_model.addVar(vtype=gb.GRB.BINARY, obj=float(self.p_bd[b, 0]),
+                                               name=''.join(['block_', str(b)]))
+        self.gb_model.update()
+
+        for b in self.blocks_precedence:
+            for b_prime in self.blocks_precedence[b]:
+                self.gb_model.addConstr(self.x_b[b] <= self.x_b[b_prime])
+               # , ''.join(['prec_b',str(b),'_bp',str(b_prime)]))
+
+    def _generate_cpit_gb_model(self):
+        # CPIT model construction
+        for b in range(self.model_nblocks):
+            for t in range(self.model_nperiods):
+                # p_hat_bt = float(self.p_bd[b, 0]) * (1.0 / (1.0 + self.model_discount_rate)) ** t
+                self.x_bt[b, t] = self.gb_model.addVar(vtype=gb.GRB.BINARY, obj=self.p_hat_bt[b,t],
+                                                       name=''.join(['block_', str(b), '_t', str(t)]))
+
+        self.gb_model.update()
+
+        # Here I unroll all the loops so that constraints generation is separated in different sections.
+        # Constraint (3)
+        print('Constructing constraint (3) ...')
+        for b in self.blocks_precedence:
+            for b_prime in self.blocks_precedence[b]:
+                for t in range(self.model_nperiods):
+                    self.gb_model.addConstr(gb.quicksum(self.x_bt[b,tt] for tt in range(t+1)) <=
+                                            gb.quicksum(self.x_bt[b_prime,tt] for tt in range(t+1)))
+        #            #,''.join(['precedence_b_',str(b),'_bp_',str(b_prime),'_t_',str(t)]))
+
+        ###################### DO NOT USE BELOW ######################
+        # Weaker form of Constraint (3) -- should NOT be used, only here for 'testing purposes'
+        # print 'Constructing (weaker) constraint [3] ...'
+        # for b in blocks_precedence:
+        #    for b_prime in blocks_precedence[b]:
+        #        for t in xrange(model_nperiods):
+        #            m.addConstr(x_bt[b,t] <= quicksum(x_bt[b_prime,tt] for tt in xrange(t+1)))
+        #            #,''.join(['precedence_b_',str(b),'_bp_',str(b_prime),'_t_',str(t)]))
+        #
+        # Yet another version... NOT TO BE USED, NOT EQUIVALENT (this forces anticipativity, but also forces
+        # EVERY block to be mined). It is also slower than previous versions.
+        # Alternative version of constraint [3]
+        # print('Constructing (test version of) constraint [3] ...')
+        # for b in self.blocks_precedence:
+        #     for b_prime in self.blocks_precedence[b]:
+        #         self.gb_model.addConstr(gb.quicksum(self.x_bt[b, t] * (t+1) for t in range(self.model_nperiods))
+        #                                 >=
+        #                                 gb.quicksum(self.x_bt[b_prime, t] * (t+1) for t in range(self.model_nperiods)))
+        ###################### DO NOT USE ABOVE ######################
+
+        # Constraint (4)
+        print('Constructing constraint (4)...')
+        for b in range(self.model_nblocks):
+            self.gb_model.addConstr(gb.quicksum(self.x_bt[b, t] for t in range(self.model_nperiods)) <= 1)
+            # ,''.join(['constr_(4)_b_',str(b)]))
+
+        # Constraint (5)
+        print('Constructing constraint (5)...')
+        for r, t in self.R_rt_lb:
+            self.gb_model.addConstr(
+                self.R_rt_lb[r, t] <=
+                gb.quicksum(self.q_br[key] * self.x_bt[key[0], t] for key in self.q_br.keys() if key[1] == r))
+            # m.addConstr(R_rt_lb[r,t] <= quicksum(q_br[key[0],key[1]]*x_bt[key[0],t] for key in q_br.keys()))
+            # ,''.join(['constr_(5)_LB_r',str(r),'_t_',str(t)]))
+
+        for r, t in self.R_rt_ub:
+            self.gb_model.addConstr(
+                gb.quicksum(self.q_br[key] * self.x_bt[key[0], t] for key in self.q_br.keys() if key[1] == r) <=
+                self.R_rt_ub[r, t])
+            # m.addConstr(quicksum(q_br[key[0],key[1]]*x_bt[key[0],t] for key in q_br.keys()) <= R_rt_ub[r,t])
+            # ,''.join(['constr_(5)_UB_r',str(r),'_t_',str(t)]))
+
+    def _generate_pcpsp_gb_model(self):
+        # PCPSP model construction
+        for b in range(self.model_nblocks):
+            for t in range(self.model_nperiods):
+                self.x_bt[b, t] = self.gb_model.addVar(vtype=gb.GRB.BINARY, obj=0,
+                                                       name=''.join(['block_', str(b), '_t', str(t)]))
+                for d in range(self.model_ndestinations):
+                    p_hat_bdt = float(self.p_bd[b, d]) * (1 / (1 + self.model_discount_rate)) ** t
+                    self.y_bdt[b, d, t] = self.gb_model.addVar(vtype=gb.GRB.CONTINUOUS, lb=0, ub=1, obj=p_hat_bdt,
+                                                               name=''.join(
+                                                                   ['y_b', str(b), '_d', str(d), '_t', str(t)]))
+
+        self.gb_model.update()
+
+        # Constraint (7)
+        print('Constructing constraint (7)...')
+        for b in self.blocks_precedence:
+            for b_prime in self.blocks_precedence[b]:
+                for t in range(self.model_nperiods):
+                    self.gb_model.addConstr(
+                        gb.quicksum(self.x_bt[b, tt] for tt in range(t+1)) <= gb.quicksum(
+                            self.x_bt[b_prime, tt] for tt in range(t+1)))
+                    # ,''.join(['precedence_b_',str(b),'_bp_',str(b_prime),'_t_',str(t)]))
+
+        # Constraint (8)
+        print('Constructing constraint (8)...')
+        for b in range(self.model_nblocks):
+            for t in range(self.model_nperiods):
+                self.gb_model.addConstr(
+                    self.x_bt[b, t] == gb.quicksum(self.y_bdt[b, d, t] for d in range(self.model_ndestinations)))
+                # ,''.join(['cstr_(8)_b_',str(b),'_t_',str(t)]))
+
+        # Constraint (9)
+        print('Constructing constraint (9)...')
+        for b in range(self.model_nblocks):
+            self.gb_model.addConstr(gb.quicksum(self.x_bt[b, t] for t in range(self.model_nperiods)) <= 1)
+            # ,''.join(['constr_(4)_b_',str(b)]))
+
+        # Constraint (10)
+        print('Constructing constraint (10)...')
+        for r, t in self.R_rt_lb:
+            self.gb_model.addConstr(self.R_rt_lb[r, t] <= gb.quicksum(
+                self.q_brd[key] * self.y_bdt[key[0], key[2], t] for key in self.q_brd.keys() if key[1] == r))
+            # ,''.join(['constr_(5)_LB_r',str(r),'_t_',str(t)]))
+
+        for r, t in self.R_rt_ub:
+            self.gb_model.addConstr(
+                gb.quicksum(
+                    self.q_brd[key] * self.y_bdt[key[0], key[2], t] for key in self.q_brd.keys() if key[1] == r) <=
+                self.R_rt_ub[r, t])
+            # ,''.join(['constr_(5)_UB_r',str(r),'_t_',str(t)]))
+
+        # Constraint (11)
+       for j in self.a_j_lb:
+            # we have to work with A_bdtj.keys() because the matrix A is represented in sparse form, so we add the
+            # A_bdtj entry to the gb.quicksum only if it really exists.
+            self.gb_model.addConstr(self.a_j_lb[j] <= gb.quicksum(
+                self.A_btdj[key[0], key[1], key[2], j] * self.y_bdt[key[0], key[1], key[2]]
+                for key in self.A_btdj.keys() if key[3] == j))
+        for j in self.a_j_ub:
+            self.gb_model.addConstr(self.a_j_ub[j] >= gb.quicksum(
+                self.A_btdj[key[0], key[1], key[2], j] * self.y_bdt[key[0], key[1], key[2]]
+                for key in self.A_btdj.keys() if key[3] == j))

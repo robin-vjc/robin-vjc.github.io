@@ -32,7 +32,7 @@ currently support BLOCK-INDEP mode. If you have troubles parsing some of these f
 
 ## MineLib Reader
 
-* [minelib-read.py](https://github.com/robin-vjc/MineLib/blob/master/minelib-read.py)
+* [minelib-read.py]({{site.url}}/publications/minelib-read.py)
 
 [MineLib](http://mansci-web.uai.cl/minelib/) is a library of optimization model instances related to open-pit 
 mine sequencing. [Here](http://emoreno.uai.cl/publicaciones/PREPRINTS/preprint-AOR12-Minelib.pdf) is a description 
@@ -46,10 +46,3 @@ This Python script does the parsing. It requires the `gurobipy` package.
 If you are working with STNs and your production schedule is subject to uncertainties, you may be interested
 in [this application](https://github.com/robin-vjc/pySTN).
 {: .text-justify}
-
-## fastDD
-
-Distributed methods for stochastic 2- stage models, and graphical inference models (Markov random fields, factor graphs).
-See [here](https://github.com/robin-vjc/fastDD).
-{: .text-justify}
-
