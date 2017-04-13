@@ -1,4 +1,5 @@
 '''
+Save and rename as minelib_read.py.
 Usage:
 
 >> model = MipLibModel('./path/to/benchmarks/newman1.upit')
@@ -21,7 +22,7 @@ Which can then be solved:
 >> model.gb_model.update()
 >> model.gb_model.optimize()
 
-The solution is stored in model.x_b, model.x_bt, model.y_bdt. 
+The solution is stored in model.x_b, model.x_bt, model.y_bdt.
 '''
 
 
