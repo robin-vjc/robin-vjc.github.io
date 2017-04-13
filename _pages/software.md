@@ -10,7 +10,7 @@ All software tools are provided without any guarantee nor liability.
 
 ## SMPS File Reader
 
-* [smps-read.py](https://github.com/robin-vjc/fastDD/blob/master/applications/stochasticMIP/smps_read.py)
+* [SMPS reader for Python.](https://github.com/robin-vjc/smps)
 
 [SMPS](http://myweb.dal.ca/gassmann/smps2.htm) is a file format for distributing stochastic multistage models. 
 It is an extension of the [MPS file format](https://en.wikipedia.org/wiki/MPS_(format)), which is used to store 

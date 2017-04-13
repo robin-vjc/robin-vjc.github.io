@@ -29,6 +29,14 @@ Below the list of my most recent publications. You can find a complete list on m
 [automatica pdf]: {{site.url}}/publications/large_mips_automatica.pdf "robust scheduling slides"
 [automatica publish]: http://www.sciencedirect.com/science/article/pii/S0005109816000078 "automatica publisher link"
 
+* A. Palmer, R. Vujanic, A. Hill, S. Scheding<br>
+**Weekly maintenance scheduling using exact and genetic methods**<br>
+*Mining Technology*, Transactions of the Institutions of Mining and Metallurgy: Section A. 2017.<br>
+[[PDF][maintenance pdf]] [[Publication Link][maintenance publish]]
+
+[maintenance pdf]: https://arxiv.org/abs/1610.05016 "maintenance scheduling pdf"
+[maintenance publish]: http://www.tandfonline.com/doi/full/10.1080/14749009.2017.1300116 "maintenance scheduling publisher link"
+
 
 ### Top-Tier Conference Publications
 
