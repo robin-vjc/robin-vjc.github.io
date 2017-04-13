@@ -32,7 +32,7 @@ currently support BLOCK-INDEP mode. If you have troubles parsing some of these f
 
 ## MineLib Reader
 
-* [minelib-read.py]({{site.url}}/publications/minelib-read.txt)
+* [minelib-read.py]({{site.url}}/publications/minelib_read.txt)
 
 [MineLib](http://mansci-web.uai.cl/minelib/) is a library of optimization model instances related to open-pit 
 mine sequencing. [Here](http://emoreno.uai.cl/publicaciones/PREPRINTS/preprint-AOR12-Minelib.pdf) is a description 
