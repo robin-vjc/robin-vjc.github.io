@@ -9,7 +9,16 @@ permalink: /publications/
 
 Below the list of my most recent publications. You can find a complete list on my [Google Scholar](https://scholar.google.com.au/citations?&user=waoeUsMAAAAJ) profile. 
 
-### Top-Tier Journal Publications
+### Journal Publications
+
+* A. Palmer, R. Vujanic, A. Hill, S. Scheding<br>
+**Weekly maintenance scheduling using exact and genetic methods**<br>
+*Mining Technology*, Transactions of the Institutions of Mining and Metallurgy: Section A. 2017.<br>
+[[PDF][maintenance pdf]] [[Publication Link][maintenance publish]]
+
+[maintenance pdf]: https://arxiv.org/abs/1610.05016 "maintenance scheduling pdf"
+[maintenance publish]: http://www.tandfonline.com/doi/full/10.1080/14749009.2017.1300116 "maintenance scheduling publisher link"
+
 
 * R. Vujanic, P. Goulart, M. Morari<br>
 **Robust Optimization of Schedules Affected by Uncertain Events**<br>
@@ -29,13 +38,13 @@ Below the list of my most recent publications. You can find a complete list on m
 [automatica pdf]: {{site.url}}/publications/large_mips_automatica.pdf "robust scheduling slides"
 [automatica publish]: http://www.sciencedirect.com/science/article/pii/S0005109816000078 "automatica publisher link"
 
-* A. Palmer, R. Vujanic, A. Hill, S. Scheding<br>
-**Weekly maintenance scheduling using exact and genetic methods**<br>
-*Mining Technology*, Transactions of the Institutions of Mining and Metallurgy: Section A. 2017.<br>
-[[PDF][maintenance pdf]] [[Publication Link][maintenance publish]]
+* T. Brack, R. Vujanic, J. Dual<br>
+**Simultaneous phase control of multiple frequencies of multi-degree-of-freedom systems**<br>
+*Journal of Vibration and Control*, 2016.<br>
+[[PDF][vibration pdf]] [[Publication Link][vibration publish]]
 
-[maintenance pdf]: https://arxiv.org/abs/1610.05016 "maintenance scheduling pdf"
-[maintenance publish]: http://www.tandfonline.com/doi/full/10.1080/14749009.2017.1300116 "maintenance scheduling publisher link"
+[vibration pdf]: {{site.url}}/publications/multiphase_control.pdf "vibration pdf"
+[vibration publish]: http://jvc.sagepub.com/content/early/2016/05/05/1077546316644366.abstract "vibration link"
 
 
 ### Top-Tier Conference Publications
@@ -69,6 +78,16 @@ Below the list of my most recent publications. You can find a complete list on m
 [cdc convex relax pdf]: https://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4509 "convex relaxations pdf"
 
 
+* G. Ledva, R. Vujanic, S. Mariéthoz, M. Morari, J. Frunt<br>
+**Model Predictive Control of a Large Fleet of Thermal Loads and Electric Power Generators, with an Assessment for the Netherlands**<br>
+*International Conference on the European Energy Market (EEM)*, Stockholm, May 2013.<br>
+[[PDF][ledva pdf]] [[Publication Link][ledva publish]]
+
+
+[ledva pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4435 "ledva pdf"
+[ledva publish]: http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6607351&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6607351 "ledva link"
+
+
 * R. Vujanic, M. Schmitt, J. Warrington and M. Morari<br>
 **Extending Affine Control Policies to Hybrid Systems: Robust Control of a DC-DC Buck Converter**<br>
 *European Control Conference (ECC)*, Zurich, July 2013<br>
@@ -81,7 +100,7 @@ Below the list of my most recent publications. You can find a complete list on m
 
 * R. Vujanic, S. Mariéthoz, P. Goulart, M. Morari<br>
 **Robust Integer Optimization and Scheduling Problems for Large Electricity Consumers**<br>
-*American Control Conference (ACC)*, Montreal, November<br>
+*American Control Conference (ACC)*, Montreal, November 2012<br>
 [[PDF][acc pdf]] [[Publication Link][acc publish]]
 
 [acc publish]: http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6314921&tag=1 "acc publisher link"
@@ -122,26 +141,3 @@ Automatic Control Laboratory, D-ITET, ETH Zurich, 2012.<br>
 [[Abstract][schmitt abstract]]
 
 [schmitt abstract]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4148 "ledva abstract"
-
-
-
-### Other Publications
-
-* T. Brack, R. Vujanic, J. Dual<br>
-**Simultaneous phase control of multiple frequencies of multi-degree-of-freedom systems**<br>
-*Journal of Vibration and Control*, 2016.<br>
-[[PDF][vibration pdf]] [[Publication Link][vibration publish]]
-
-
-[vibration pdf]: {{site.url}}/publications/multiphase_control.pdf "vibration pdf"
-[vibration publish]: http://jvc.sagepub.com/content/early/2016/05/05/1077546316644366.abstract "vibration link"
-
-
-* G. Ledva, R. Vujanic, S. Mariéthoz, M. Morari, J. Frunt<br>
-**Model Predictive Control of a Large Fleet of Thermal Loads and Electric Power Generators, with an Assessment for the Netherlands**<br>
-*International Conference on the European Energy Market (EEM)*, Stockholm, May 2013.<br>
-[[PDF][ledva pdf]] [[Publication Link][ledva publish]]
-
-
-[ledva pdf]: http://control.ee.ethz.ch/index.cgi?page=publications&action=details&id=4435 "ledva pdf"
-[ledva publish]: http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=6607351&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D6607351 "ledva link"
