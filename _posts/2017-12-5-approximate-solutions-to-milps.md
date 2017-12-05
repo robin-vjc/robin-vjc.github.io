@@ -41,6 +41,7 @@ The general idea of duality is to take advantage of this type of situation: when
 **Remark**: the discussion in this notebook pertains situations in which we have "complicating constraints". The same framework can be applied to situations in which we have "complicating variables", as we do for the examples concerning decomposition of some problems arising in computer vision and stochastic optimization.
 
 With our choice of constraints to be dualized, we get the following corresponding dual function $$d(\lambda)$$:
+
 \\[
 \begin{array}{lcll}
 d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \frac{1}{2} x_1 - \frac{1}{2} x_2 - x_3) + \lambda_2(x_1+x_2 -1)\\
@@ -48,10 +49,11 @@ d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \
 &&& x_1 \in \left\{0,1\right\}. \\
 \end{array}
 \\]
+
 Note that while our primal problem is an optimization model where $$x$$ is the optimization variable, in the above dual function the variable is $$\lambda$$, while $$x$$ is "hidden" in the so-called inner optimization model.
 
 The important advantage we have recovered from dualizing constraints is that evaluating the dual function $$d(\lambda)$$ for a given $$\lambda$$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $$\lambda$$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $$d(\lambda)$$ looks like this:
-![dual function](img/ex_2.png)
+![dual function](../img/ex_2.png)
 It turns out that for discrete primal problems, the dual function $$d(\lambda)$$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
 \\[
 \begin{array}{ll}
@@ -59,7 +61,7 @@ It turns out that for discrete primal problems, the dual function $$d(\lambda)$$
 \mathrm{s.t.} & \lambda \in \Lambda
 \end{array}
 \\]
-where $$\Lambda = \mathbb{R}_+^2$$ (so-called positive orthant). 
+where $$\Lambda = \mathbb{R}_+^2$$ (the so-called positive orthant). 
 
 
 **Remark:** the structure of $$\Lambda$$ depends on the constraints we are dualizing. Roughly speaking, if the $$i$$-th constraint dualized is an inequality "$$\leq$$", the corresponding $$i$$-th entry in $$\lambda_k$$ has to be positive, i.e., $$\lambda_k[i] \geq 0$$; if the constraint is an equality, $$\lambda_k[i]$$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $$\Lambda$$; this is beyond the scope of this tutorial.
