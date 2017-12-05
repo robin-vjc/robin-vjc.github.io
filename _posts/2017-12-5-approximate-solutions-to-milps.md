@@ -53,14 +53,14 @@ Note that while our primal problem is an optimization model where $$x$$ is the o
 The important advantage we have recovered from dualizing constraints is that evaluating the dual function $$d(\lambda)$$ for a given $$\lambda$$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $$\lambda$$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $$d(\lambda)$$ looks like this:
 ![dual function](img/ex_2.png)
 It turns out that for discrete primal problems, the dual function $$d(\lambda)$$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
-
 $$
+\begin{equation}
 \begin{array}{ll}
 \max\limits_\lambda & d(\lambda) \\
 \mathrm{s.t.} & \lambda \in \Lambda
 \end{array}
+\end{equation}
 $$
-
 where $$\Lambda = \mathbb{R}_+^2$$ (so-called positive orthant). 
 
 **Remark:** the structure of $$\Lambda$$ depends on the constraints we are dualizing. Roughly speaking, if the $$i$$-th constraint dualized is an inequality "$$\leq$$", the corresponding $$i$$-th entry in $$\lambda_k$$ has to be positive, i.e., $$\lambda_k[i] \geq 0$$; if the constraint is an equality, $$\lambda_k[i]$$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $$\Lambda$$; this is beyond the scope of this tutorial.
