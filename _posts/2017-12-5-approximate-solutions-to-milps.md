@@ -11,9 +11,11 @@ from mpl_toolkits.mplot3d import Axes3D
 %matplotlib notebook
 ```
 
-# Approximate solutions to MILPs
+# Approximate solutions to MILPs with nsopy
 
-One important application of first order methods for non-differentiable objectives is to solve dual problems associated to discrete/mixed-integer optimization programs, i.e., problems entailing binary or integer variables.
+One important application of the first order methods for non-differentiable convex models implemented in [nsopy](https://github.com/robin-vjc/nsopy) is to solve dual problems associated to discrete/mixed-integer optimization programs, i.e., problems entailing binary or integer variables.
+
+In this post I discuss how these tools can be used to retrieve approximate solutions to structured MILPs.
 
 ### Step 1
 
