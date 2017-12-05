@@ -1,6 +1,7 @@
 ---
-title: "Paypal Adaptive Payments with Python / Django"
-excerpt: "Example on how to implement an adaptive paypal payment with python"
+title: "Approximate Solutions to Structured MILPs using Lagrangian Duality"
+excerpt: "Brief tutorial on how to get approximate solutions to structured MILPs using Lagrangian Duality."
+mathjax: true
 ---
 
 ```python
