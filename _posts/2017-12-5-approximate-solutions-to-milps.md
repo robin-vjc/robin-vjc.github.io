@@ -48,7 +48,7 @@ With our choice of constraints to be dualized, we get the following correspondin
 \begin{array}{lcll}
 d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \frac{1}{2} x_1 - \frac{1}{2} x_2 - x_3) + \lambda_2(x_1+x_2 -1)\\\
 && \mathrm{s.t.} & 0 \leq x_1,x_2,x_3 \leq 1\\\
-&&& x_1 \in \left\{0,1\right\}. \\\
+&&& x_1 \in \left\\{0,1\right\\}. \\\
 \end{array}
 \end{align}
 \\]
