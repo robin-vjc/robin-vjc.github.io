@@ -1,16 +1,14 @@
 # main links links
 main:
 
-# ADD in code: figure of stochastic under SMPS. websites made
-
   - title: "Publications"
     url: https://robin-vjc.github.io/publications/
 
+  - title: "Posts"
+    url: https://robin-vjc.github.io/blog/
+
   - title: "Code"
     url: https://robin-vjc.github.io/software/
-
-#  - title: "Blog Posts"
-#    url: https://robin-vjc.github.io/blog/
 
 #  - title: "Short Bio"
 #    url: https://robin-vjc.github.io/about/

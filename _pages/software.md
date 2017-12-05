@@ -8,7 +8,18 @@ permalink: /software/
 
 All software tools are provided without any guarantee nor liability.
 
-## SMPS File Reader
+## nsopy
+
+A python package for non-smooth optimization. Github repo [here](https://github.com/robin-vjc/nsopy).
+
+* Installation: ```pip install nsopy```
+* Examples
+  * [basic usage](https://github.com/robin-vjc/nsopy/blob/master/notebooks/AnalyticalExample.ipynb)
+  * [computing approximate solutions to structured MILPs](https://github.com/robin-vjc/nsopy/blob/master/notebooks/ApplicationToDuality.ipynb)
+
+
+## Parsers
+#### SMPS File Reader
 
 * [SMPS reader for Python.](https://github.com/robin-vjc/smps)
 
@@ -30,7 +41,7 @@ currently support BLOCK-INDEP mode. If you have troubles parsing some of these f
 {: .text-justify}
 
 
-## MineLib Reader
+#### MineLib Reader
 
 * [minelib-read.py]({{site.url}}/publications/minelib_read.txt)
 
@@ -40,9 +51,3 @@ of the file format, while [here](http://mansci-web.uai.cl/minelib/Datasets.xhtml
 {: .text-justify}
 
 This Python script does the parsing. It requires the `gurobipy` package.
-
-## Robust Scheduler for STNs
-
-If you are working with STNs and your production schedule is subject to uncertainties, you may be interested
-in [this application](https://github.com/robin-vjc/pySTN).
-{: .text-justify}
