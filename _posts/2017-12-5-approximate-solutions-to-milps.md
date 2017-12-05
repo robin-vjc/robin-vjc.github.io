@@ -19,6 +19,7 @@ One important application of first order methods for non-differentiable objectiv
 
 Consider the following optimization program (MILP):
 \\[
+\begin{align}
 \begin{array}{ll}
 \min\limits_x     & -\frac{1}{2} x_1 - x_2 + x_3\\
 \mathrm{s.t.}    & \frac{1}{2} x_1 + \frac{1}{2} x_2 + x_3 \geq 1\\
@@ -26,6 +27,7 @@ Consider the following optimization program (MILP):
 & 0 \leq x_1,x_2,x_3 \leq 1\\
 & x_1 \in \left\{0,1\right\}.
 \end{array}
+\end{align}
 \\]
 
 One can verify that the (unique) optimizer for this problem is $$x^\star = [0, 1, 1]$$. We generally work with problems for which we find it hard to compute an exact optimizer, and wish to explore possibilities of computing approximate solutions instead.
