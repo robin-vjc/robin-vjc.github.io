@@ -19,7 +19,7 @@ In this post I discuss how these tools can be used to retrieve approximate solut
 
 ### Step 1
 
-Consider the following optimization program (MILP):
+Consider the following optimization program:
 \\[
 \begin{align}
 \begin{array}{ll}
