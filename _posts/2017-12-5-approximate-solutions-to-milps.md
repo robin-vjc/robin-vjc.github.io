@@ -1,6 +1,6 @@
 ---
 title: "Approximate Solutions to Structured MILPs using Lagrangian Duality"
-excerpt: "Brief tutorial on how to get approximate solutions to structured MILPs using Lagrangian Duality."
+excerpt: "Brief tutorial on how to get approximate solutions to structured MILPs using Lagrangian Duality / Lagrangian Relaxation."
 mathjax: true
 ---
 
@@ -29,7 +29,6 @@ Consider the following optimization program (MILP):
 \end{array}
 \end{align}
 \\]
-
 One can verify that the (unique) optimizer for this problem is $$x^\star = [0, 1, 1]$$. We generally work with problems for which we find it hard to compute an exact optimizer, and wish to explore possibilities of computing approximate solutions instead.
 
 Note that without the first two constraints, the problem is trivial: it reduces to a linear optimization over a unit box, so an optimal value for $$x_i$$ would be 0 if its corresponding coefficient in the objective is positive, and 1 otherwise. 
@@ -45,13 +44,13 @@ The general idea of duality is to take advantage of this type of situation: when
 With our choice of constraints to be dualized, we get the following corresponding dual function $$d(\lambda)$$:
 
 \\[
-\begin{eqnarray}
+\begin{align}
 \begin{array}{lcll}
-d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \frac{1}{2} x_1 - \frac{1}{2} x_2 - x_3) + \lambda_2(x_1+x_2 -1)\\
-&& \mathrm{s.t.} & 0 \leq x_1,x_2,x_3 \leq 1\\
-&&& x_1 \in \left\{0,1\right\}. \\
+d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \frac{1}{2} x_1 - \frac{1}{2} x_2 - x_3) + \lambda_2(x_1+x_2 -1)\\\
+&& \mathrm{s.t.} & 0 \leq x_1,x_2,x_3 \leq 1\\\
+&&& x_1 \in \left\{0,1\right\}. \\\
 \end{array}
-\end{eqnarray}
+\end{align}
 \\]
 
 Note that while our primal problem is an optimization model where $$x$$ is the optimization variable, in the above dual function the variable is $$\lambda$$, while $$x$$ is "hidden" in the so-called inner optimization model.
