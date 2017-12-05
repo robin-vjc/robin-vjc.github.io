@@ -28,9 +28,9 @@ $$
 \end{array}
 $$
 
-One can verify that the (unique) optimizer for this problem is $x^\star = [0, 1, 1]$. We generally work with problems for which we find it hard to compute an exact optimizer, and wish to explore possibilities of computing approximate solutions instead.
+One can verify that the (unique) optimizer for this problem is $$x^\star = [0, 1, 1]$$. We generally work with problems for which we find it hard to compute an exact optimizer, and wish to explore possibilities of computing approximate solutions instead.
 
-Note that without the first two constraints, the problem is trivial: it reduces to a linear optimization over a unit box, so an optimal value for $x_i$ would be 0 if its corresponding coefficient in the objective is positive, and 1 otherwise. 
+Note that without the first two constraints, the problem is trivial: it reduces to a linear optimization over a unit box, so an optimal value for $$x_i$$ would be 0 if its corresponding coefficient in the objective is positive, and 1 otherwise. 
 
 ### Step 2
 
@@ -40,7 +40,7 @@ The general idea of duality is to take advantage of this type of situation: when
 
 **Remark**: the discussion in this notebook pertains situations in which we have "complicating constraints". The same framework can be applied to situations in which we have "complicating variables", as we do for the examples concerning decomposition of some problems arising in computer vision and stochastic optimization.
 
-With our choice of constraints to be dualized, we get the following corresponding dual function $d(\lambda)$:
+With our choice of constraints to be dualized, we get the following corresponding dual function $$d(\lambda)$$:
 
 $$
 \begin{array}{lcll}
@@ -50,11 +50,11 @@ d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \
 \end{array}
 $$
 
-Note that while our primal problem is an optimization model where $x$ is the optimization variable, in the above dual function the variable is $\lambda$, while $x$ is "hidden" in the so-called inner optimization model.
+Note that while our primal problem is an optimization model where $$x$$ is the optimization variable, in the above dual function the variable is $$\lambda$$, while $$x$$ is "hidden" in the so-called inner optimization model.
 
-The important advantage we have recovered from dualizing constraints is that evaluating the dual function $d(\lambda)$ for a given $\lambda$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $\lambda$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $d(\lambda)$ looks like this:
+The important advantage we have recovered from dualizing constraints is that evaluating the dual function $$d(\lambda)$$ for a given $$\lambda$$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $$\lambda$$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $$d(\lambda)$$ looks like this:
 ![dual function](img/ex_2.png)
-It turns out that for discrete primal problems, the dual function $d(\lambda)$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
+It turns out that for discrete primal problems, the dual function $$d(\lambda)$$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
 
 $$
 \begin{array}{ll}
@@ -63,11 +63,11 @@ $$
 \end{array}
 $$
 
-where $\Lambda = \mathbb{R}_+^2$ (so-called positive orthant). 
+where $$\Lambda = \mathbb{R}_+^2$$ (so-called positive orthant). 
 
-**Remark:** the structure of $\Lambda$ depends on the constraints we are dualizing. Roughly speaking, if the $i$-th constraint dualized is an inequality "$\leq$", the corresponding $$i$$-th entry in $$\lambda_k$$ has to be positive, i.e., $\lambda_k[i] \geq 0$; if the constraint is an equality, $\lambda_k[i]$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $\Lambda$; this is beyond the scope of this tutorial.
+**Remark:** the structure of $$\Lambda$$ depends on the constraints we are dualizing. Roughly speaking, if the $$i$$-th constraint dualized is an inequality "$$\leq$$", the corresponding $$i$$-th entry in $$\lambda_k$$ has to be positive, i.e., $$\lambda_k[i] \geq 0$$; if the constraint is an equality, $$\lambda_k[i]$$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $$\Lambda$$; this is beyond the scope of this tutorial.
 
-Notice that, in contrast to the example discussed [here](./AnalyticalExample.ipynb), where the entire function was known analytically a priori, in this case we do not have an explicit analytical expression for $d(\lambda)$ but we can query its first order oracle, i.e., know the gradient and the function value of $d(\lambda_k)$ for a given $\lambda_k \in \Lambda$.
+Notice that, in contrast to the example discussed [here](./AnalyticalExample.ipynb), where the entire function was known analytically a priori, in this case we do not have an explicit analytical expression for $$d(\lambda)$$ but we can query its first order oracle, i.e., know the gradient and the function value of $$d(\lambda_k)$$ for a given $$\lambda_k \in \Lambda$$.
 
 This problem belongs to the battery of test cases for this package, so we can simply import it and pass it to our solvers.
 
@@ -134,11 +134,11 @@ plt.plot([lmd[0] for lmd in method_logger.lambda_k_iterates],
 
 **Note 1**: you can try all the different methods. 
 
-**Note 2**: the instantiation of the methods implemented requires the `dimension` argument to be defined. This can be avoided if the `projection_function(lambda_k)` method can be called with $\lambda_k=0$, and returns a gradient of appropriate dimension.
+**Note 2**: the instantiation of the methods implemented requires the `dimension` argument to be defined. This can be avoided if the `projection_function(lambda_k)` method can be called with $$\lambda_k=0$$, and returns a gradient of appropriate dimension.
 
 ### Step 3
 
-We can now inspect the $\lambda_k$ produced by our solution methods at iteration $k$; we are particularly interested in the last iterate:
+We can now inspect the $$\lambda_k$$ produced by our solution methods at iteration $$k$$; we are particularly interested in the last iterate:
 
 
 ```python
@@ -149,7 +149,7 @@ print(lambda_k)
     [ 1.00852273  1.00852273]
     
 
-which we can use to evaluate $d(\lambda_k)$. An approximate solution to our initial primal problem is given by the solution of the inner problem at $\lambda_k$, which we denote by $x(\lambda_k)$:
+which we can use to evaluate $$d(\lambda_k)$$. An approximate solution to our initial primal problem is given by the solution of the inner problem at $$\lambda_k$$, which we denote by $$x(\lambda_k)$$:
 
 
 ```python
@@ -160,7 +160,7 @@ print(x_k)
     [ 0.  1.  1.]
     
 
-In this particular case we actually recovered the optimizer of the problem, which, as noted above, is indeed $x^\star = [0,1,1]$. This is a lucky coincidence though. We can namely inspect the inner solutions recovered at earlier steps; these are also stored in the logger:
+In this particular case we actually recovered the optimizer of the problem, which, as noted above, is indeed $$x^\star = [0,1,1]$$. This is a lucky coincidence though. We can namely inspect the inner solutions recovered at earlier steps; these are also stored in the logger:
 
 
 ```python
@@ -183,8 +183,8 @@ method_logger.x_k_iterates[-10:]
 
 
 
-It looks like $x_1$ and $x_2$ are stuck at $0$ and $1$ respectively, while $x_3$ oscillates between $0$ and $1$. Choosing $x_3 = 1$ leads to the optimizer, while $x_3 = 0$ resolves in an infeasible primal point. 
+It looks like $$x_1$$ and $$x_2$$ are stuck at $$0$$ and $$1$$ respectively, while $$x_3$$ oscillates between $$0$$ and $$1$$. Choosing $$x_3 = 1$$ leads to the optimizer, while $$x_3 = 0$$ resolves in an infeasible primal point. 
 
-This is the nature of this type of approximation, which in the literature is called *Lagrangian Relaxation*: while we go through our dual iterates $\lambda_k$, we inspect the inner solutions recovered; we generally do not have any guarantees on whether these inner solutions are optimal or even feasible, but in practice they often turn out to be very good approximations. There are special problem structures for which we can provide some feasibility and performance guarantees, but this is beyond the scope of this brief introduction.
+This is the nature of this type of approximation, which in the literature is called *Lagrangian Relaxation*: while we go through our dual iterates $$\lambda_k$$, we inspect the inner solutions recovered; we generally do not have any guarantees on whether these inner solutions are optimal or even feasible, but in practice they often turn out to be very good approximations. There are special problem structures for which we can provide some feasibility and performance guarantees, but this is beyond the scope of this brief introduction.
 
-These dual methods are the basis of a class of solutions architectures used to solve large, complex integer optimization models. They can be combined with heuristics which can rectify infeasibile solutions into feasible ones. They are also the main machinery behind solution methods like *column generation* and *Benders decomposition*. Dual methods can also be used to produce strong lower bounds for primal optimization problems: we have in fact that $d(\lambda_k) \leq p^\star$ for all $\lambda_k \in \Lambda$, where $p^\star$ is the optimizer of the primal problem.
+These dual methods are the basis of a class of solutions architectures used to solve large, complex integer optimization models. They can be combined with heuristics which can rectify infeasibile solutions into feasible ones. They are also the main machinery behind solution methods like *column generation* and *Benders decomposition*. Dual methods can also be used to produce strong lower bounds for primal optimization problems: we have in fact that $$d(\lambda_k) \leq p^\star$$ for all $$\lambda_k \in \Lambda$$, where $$p^\star$$ is the optimizer of the primal problem.
