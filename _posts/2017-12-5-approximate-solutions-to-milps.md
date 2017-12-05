@@ -57,11 +57,13 @@ d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \
 Note that while our primal problem is an optimization model where $$x$$ is the optimization variable, in the above dual function the variable is $$\lambda$$, while $$x$$ is "hidden" in the so-called inner optimization model.
 
 The important advantage we have recovered from dualizing constraints is that evaluating the dual function $$d(\lambda)$$ for a given $$\lambda$$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $$\lambda$$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $$d(\lambda)$$ looks like this:
+
 ![dual function](../img/ex_2.png)
+
 It turns out that for discrete primal problems, the dual function $$d(\lambda)$$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
 \\[
 \begin{array}{ll}
-\max\limits_\lambda & d(\lambda) \\
+\max\limits_\lambda & d(\lambda) \\\
 \mathrm{s.t.} & \lambda \in \Lambda
 \end{array}
 \\]
