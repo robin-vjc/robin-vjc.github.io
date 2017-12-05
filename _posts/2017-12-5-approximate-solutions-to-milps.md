@@ -59,7 +59,7 @@ Note that while our primal problem is an optimization model where $$x$$ is the o
 
 The important advantage we have recovered from dualizing constraints is that evaluating the dual function $$d(\lambda)$$ for a given $$\lambda$$ is trivial: the *inner* optimization problem simply sets to 0 variables that, for given $$\lambda$$, have a positive objective; otherwise 1 (as noted before). When plotted, the dual function $$d(\lambda)$$ looks like this:
 
-![dual function](../img/ex_2.png)
+![dual function](../img/ex_2.png){: .align-center}
 
 It turns out that for discrete primal problems, the dual function $$d(\lambda)$$ is non-smooth, and we would like to optimize (maximize) it according to the dual problem:
 \\[
