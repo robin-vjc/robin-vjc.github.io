@@ -65,7 +65,7 @@ $$
 
 where $\Lambda = \mathbb{R}_+^2$ (so-called positive orthant). 
 
-**Remark:** the structure of $\Lambda$ depends on the constraints we are dualizing. Roughly speaking, if the $i$-th constraint dualized is an inequality "$\leq$", the corresponding $i$-th entry in $\lambda_k$ has to be positive, i.e., $\lambda_k[i] \geq 0$; if the constraint is an equality, $\lambda_k[i]$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $\Lambda$; this is beyond the scope of this tutorial.
+**Remark:** the structure of $\Lambda$ depends on the constraints we are dualizing. Roughly speaking, if the $i$-th constraint dualized is an inequality "$\leq$", the corresponding $$i$$-th entry in $$\lambda_k$$ has to be positive, i.e., $\lambda_k[i] \geq 0$; if the constraint is an equality, $\lambda_k[i]$ is free. There might be regions where the dual function is unbounded from below, which we also typically want to avoid by integrating the corresponding constraints in $\Lambda$; this is beyond the scope of this tutorial.
 
 Notice that, in contrast to the example discussed [here](./AnalyticalExample.ipynb), where the entire function was known analytically a priori, in this case we do not have an explicit analytical expression for $d(\lambda)$ but we can query its first order oracle, i.e., know the gradient and the function value of $d(\lambda_k)$ for a given $\lambda_k \in \Lambda$.
 
