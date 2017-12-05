@@ -21,11 +21,11 @@ Consider the following optimization program (MILP):
 \\[
 \begin{align}
 \begin{array}{ll}
-\min\limits_x     & -\frac{1}{2} x_1 - x_2 + x_3\\
-\mathrm{s.t.}    & \frac{1}{2} x_1 + \frac{1}{2} x_2 + x_3 \geq 1\\
-& x_1 + x_2 \leq 1\\
-& 0 \leq x_1,x_2,x_3 \leq 1\\
-& x_1 \in \left\{0,1\right\}.
+\min\limits_x     & -\frac{1}{2} x_1 - x_2 + x_3\\\
+\mathrm{s.t.}    & \frac{1}{2} x_1 + \frac{1}{2} x_2 + x_3 \geq 1\\\
+& x_1 + x_2 \leq 1\\\
+& 0 \leq x_1,x_2,x_3 \leq 1\\\
+& x_1 \in \left\\{0,1\right\\}.
 \end{array}
 \end{align}
 \\]
