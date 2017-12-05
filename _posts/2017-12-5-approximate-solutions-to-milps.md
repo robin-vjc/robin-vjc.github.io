@@ -43,11 +43,13 @@ The general idea of duality is to take advantage of this type of situation: when
 With our choice of constraints to be dualized, we get the following corresponding dual function $$d(\lambda)$$:
 
 \\[
+\begin{eqnarray}
 \begin{array}{lcll}
 d(\lambda) & = & \min\limits_x & -\frac{1}{2} x_1 - x_2 + x_3 + \lambda_1 (1 - \frac{1}{2} x_1 - \frac{1}{2} x_2 - x_3) + \lambda_2(x_1+x_2 -1)\\
 && \mathrm{s.t.} & 0 \leq x_1,x_2,x_3 \leq 1\\
 &&& x_1 \in \left\{0,1\right\}. \\
 \end{array}
+\end{eqnarray}
 \\]
 
 Note that while our primal problem is an optimization model where $$x$$ is the optimization variable, in the above dual function the variable is $$\lambda$$, while $$x$$ is "hidden" in the so-called inner optimization model.
