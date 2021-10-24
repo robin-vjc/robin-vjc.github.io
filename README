@@ -1,0 +1,8 @@
+To deploy
+
+```bash
+# compile page
+hugo
+# copy public folder in docs (used as source in github)
+cp -r public docs
+```
