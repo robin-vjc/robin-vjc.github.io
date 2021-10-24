@@ -1,0 +1,72 @@
+baseURL = "https://robin-vjc.github.io"
+title = "Robin Vujanic"
+theme = "gokarna"
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
+enableRobotsTXT = true
+
+# Choose one of emacs, trac or perldoc
+pygmentsStyle = "monokai"
+
+[params]
+  footer = "Robin Vujanic"
+  description = "Find me on"
+  avatarURL = "/images/avatar.jpg"
+  # Choose one of size-xs, size-s, size-m, size-l & size-xl. (Default: size-m)
+  avatarSize = "size-l"
+  accentColor = "#FF4D4D"
+#  showPostsOnHomePage = ""
+  customHeadHTML = ""
+# """
+#    <!-- KaTeX -->
+#    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+#    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+#    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+#        onload="renderMathInElement(document.body);"></script>
+#  """
+  socialIcons = [
+    {name = "linkedin", url = "https://www.linkedin.com/in/robin-vujanic-504894a3/"},
+    {name = "github", url = "https://github.com/robin-vjc"},
+    {name = "stackoverflow", url = "https://stackoverflow.com/users/4993397/rvc"},
+  ]
+  metaKeywords = ["personal", "home", "page", "robin", "vujanic"]
+
+[menu]
+#  [[menu.main]]
+#    name = "Home"
+#    url = "/"
+#    weight = 1
+
+#  [[menu.main]]
+#    name = "Posts"
+#    url = "/posts/"
+#    weight = 2
+#
+#  [[menu.main]]
+#    name = "Projects"
+#    url = "/projects/"
+#    weight = 3
+#
+#  [[menu.main]]
+#    name = "Tags"
+#    url = "/tags/"
+#    weight = 4
+
+  [[menu.main]]
+    identifier = "github"
+    pre = "<span data-feather='github'></span>"
+    url = "https://github.com/robin-vjc"
+    weight = 5
+
+#  [[menu.main]]
+#    identifier = "buymeacoffee"
+#    pre = "<span data-feather='coffee'></span>"
+#    url = "https://www.buymeacoffee.com/avijitgupta"
+#    weight = 6
+#
+#  [[menu.main]]
+#    identifier = "rss"
+#    pre = "<span data-feather='rss'></span>"
+#    url = "/index.xml"
+#    weight = 7
